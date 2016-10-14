@@ -33,9 +33,9 @@ class User extends Authenticatable
     {
         $this->attributes['password'] = \Hash::make($value);
     }
-    public function about()
+    public function abouts()
     {
-        return $this->hasMany('App\About');
+        return $this->hasMany('App\Abouts');
     }
 
     public function skills()
@@ -55,17 +55,17 @@ class User extends Authenticatable
     {
         return $this->hasMany('App\Espskills');
     }
-    public function contact()
+    public function contacts()
     {
-        return $this->hasMany('App\Contact');
+        return $this->hasMany('App\Contacts');
     }
     public function education()
     {
         return $this->hasMany('App\Education');
     }
-    public function career()
+    public function careers()
     {
-        return $this->hasMany('App\Career');
+        return $this->hasMany('App\Careers');
     }
     public function works()
     {
@@ -83,9 +83,9 @@ class User extends Authenticatable
     {
         return $this->hasMany('App\Achievements');
     }
-    public function volunteer()
+    public function volunteers()
     {
-        return $this->hasMany('App\Volunteer');
+        return $this->hasMany('App\Volunteers');
     }
     public function casestudies()
     {
