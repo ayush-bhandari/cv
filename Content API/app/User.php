@@ -33,4 +33,62 @@ class User extends Authenticatable
     {
         $this->attributes['password'] = \Hash::make($value);
     }
+    public function about()
+    {
+        return $this->hasMany('App\About');
+    }
+
+    public function skills()
+    {
+        return $this->hasMany('App\Skills');
+    }
+
+    public function tools()
+    {
+        return $this->hasMany('App\Tools');
+    }
+    public function languages()
+    {
+        return $this->hasMany('App\Languages');
+    }
+    public function espskills()
+    {
+        return $this->hasMany('App\Espskills');
+    }
+    public function contact()
+    {
+        return $this->hasMany('App\Contact');
+    }
+    public function education()
+    {
+        return $this->hasMany('App\Education');
+    }
+    public function career()
+    {
+        return $this->hasMany('App\Career');
+    }
+    public function works()
+    {
+        return $this->hasMany('App\Works');
+    }
+    public function projects()
+    {
+        return $this->hasMany('App\Projects');
+    }
+    public function awards()
+    {
+        return $this->hasMany('App\Awards');
+    }
+    public function achievements()
+    {
+        return $this->hasMany('App\Achievements');
+    }
+    public function volunteer()
+    {
+        return $this->hasMany('App\Volunteer');
+    }
+    public function casestudies()
+    {
+        return $this->hasMany('App\Casestudies');
+    }
 }

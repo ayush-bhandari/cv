@@ -20,7 +20,7 @@ class AuthController extends Controller
 
     public function login(Request $request)
     {
-        $credentials = $request->only(['email', 'password']);
+        $credentials=(array)$request->json()->all();
 
         $validator = Validator::make($credentials, [
             'email' => 'required',
@@ -44,10 +44,7 @@ class AuthController extends Controller
 
     public function signup(Request $request)
     {
-        $signupFields = Config::get('boilerplate.signup_fields');
-        $hasToReleaseToken = Config::get('boilerplate.signup_token_release');
-
-        $userData = $request->only($signupFields);
+        $userData= (array)$request->json()->all();
 
         $validator = Validator::make($userData, Config::get('boilerplate.signup_fields_rules'));
 
@@ -94,35 +91,16 @@ class AuthController extends Controller
 
     public function reset(Request $request)
     {
-        $credentials = $request->only(
-            'email', 'password', 'password_confirmation', 'token'
-        );
+       $currentUser = JWTAuth::parseToken()->authenticate();
+        $userData= (array)$request->json()->all();
 
-        $validator = Validator::make($credentials, [
-            'token' => 'required',
-            'email' => 'required|email',
-            'password' => 'required|confirmed|min:6',
-        ]);
+        //$user = User::where('email', '=', $currentUser['email']);
+        $currentUser->password = $userData['password'];
 
-        if($validator->fails()) {
-            throw new ValidationHttpException($validator->errors()->all());
-        }
-        
-        $response = Password::reset($credentials, function ($user, $password) {
-            $user->password = $password;
-            $user->save();
-        });
-
-        switch ($response) {
-            case Password::PASSWORD_RESET:
-                if(Config::get('boilerplate.reset_token_release')) {
-                    return $this->login($request);
-                }
-                return $this->response->noContent();
-
-            default:
-                return $this->response->error('could_not_reset_password', 500);
-        }
+        if($currentUser->save())
+            return $this->response->created('created', 201);
+        else
+            return $this->response->error('could_not_reset_password', 500);
     }
 
 }
