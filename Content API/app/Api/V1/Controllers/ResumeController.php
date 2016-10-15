@@ -44,7 +44,19 @@ class ResumeController extends Controller
     }
     public function postAbouts(Request $request)
     {
-    	return $this->response->created('created', 201);
+    	$data= (array)$request->json()->all();
+        
+            $abouts = new Abouts;      
+            $abouts->portfolio = json_encode($data['portfolio']);
+            
+            $abouts->descone = $data['descone'];
+            $abouts->desctwo = $data['desctwo'];
+            $abouts->descthree =$data['descthree'];
+       
+        if($abouts->save())
+            return $this->response->created('created', 201);
+        else
+            return $this->response->error('could_not_be_created', 500);
     }
 
 	public function getSkills()
@@ -54,7 +66,17 @@ class ResumeController extends Controller
 	}
     public function postSkills(Request $request)
     {
-    	return $this->response->created('created', 201);
+    	$data= (array)$request->json()->all();
+        
+            $skills = new Skills;      
+            
+            $skills->title = $data['title'];
+            $skills->capacity = $data['capacity'];
+       
+        if($skills->save())
+            return $this->response->created('created', 201);
+        else
+            return $this->response->error('could_not_be_created', 500);
     } 
 
     public function getTools()
@@ -64,7 +86,17 @@ class ResumeController extends Controller
 	}
     public function postTools(Request $request)
     {
-    	return $this->response->created('created', 201);
+    	$data= (array)$request->json()->all();
+        
+            $tools = new Tools;      
+            
+            $tools->title = $data['title'];
+            $tools->capacity = $data['capacity'];
+       
+        if($tools->save())
+            return $this->response->created('created', 201);
+        else
+            return $this->response->error('could_not_be_created', 500);
     } 
 
     public function getLanguages()
@@ -74,7 +106,17 @@ class ResumeController extends Controller
 	}
     public function postLanguages(Request $request)
     {
-    	return $this->response->created('created', 201);
+    	$data= (array)$request->json()->all();
+        
+            $languages = new Languages;      
+            
+            $languages->title = $data['title'];
+            $languages->capacity = $data['capacity'];
+       
+        if($languages->save())
+            return $this->response->created('created', 201);
+        else
+            return $this->response->error('could_not_be_created', 500);
     } 
 
     public function getEspskills()
@@ -84,7 +126,16 @@ class ResumeController extends Controller
 	}
     public function postEspskills(Request $request)
     {
-    	return $this->response->created('created', 201);
+    	$data= (array)$request->json()->all();
+        
+            $espskills = new Espskills;      
+            
+            $espskills->desc = $data['desc'];
+       
+        if($espskills->save())
+            return $this->response->created('created', 201);
+        else
+            return $this->response->error('could_not_be_created', 500);
     } 
 
     public function getContacts()
@@ -94,7 +145,17 @@ class ResumeController extends Controller
 	}
     public function postContacts(Request $request)
     {
-		return $this->response->created('created', 201);
+		$data= (array)$request->json()->all();
+        
+            $contacts = new Contacts;      
+            
+            $contacts->title = $data['title'];
+            $contacts->detail = $data['detail'];
+       
+        if($contacts->save())
+            return $this->response->created('created', 201);
+        else
+            return $this->response->error('could_not_be_created', 500);
     } 
 
     public function getEducation()
@@ -104,7 +165,21 @@ class ResumeController extends Controller
 	}
     public function postEducation(Request $request)
     {
-    	return $this->response->created('created', 201);
+    	$data= (array)$request->json()->all();
+        
+            $education = new Education;      
+            
+            $education->start_date = $data['start_date'];
+            $education->end_date = $data['end_date'];
+            $education->name = $data['name'];
+            $education->address = $data['address'];
+            $education->title = $data['title'];
+            $education->link = $data['link'];
+       
+        if($education->save())
+            return $this->response->created('created', 201);
+        else
+            return $this->response->error('could_not_be_created', 500);
     } 
 
     public function getCareers()
@@ -114,7 +189,21 @@ class ResumeController extends Controller
 	}
     public function postCareers(Request $request)
     {
-    	return $this->response->created('created', 201);
+    	$data= (array)$request->json()->all();
+        
+            $careers = new Careers;      
+            
+            $careers->start_date = $data['start_date'];
+            $careers->end_date = $data['end_date'];
+            $careers->position = $data['position'];
+            $careers->name = $data['name'];
+            $careers->address = $data['address'];
+            $careers->link = $data['link'];
+       
+        if($careers->save())
+            return $this->response->created('created', 201);
+        else
+            return $this->response->error('could_not_be_created', 500);
     }
 
     public function getWorks()
@@ -124,7 +213,17 @@ class ResumeController extends Controller
 	}
     public function postWorks(Request $request)
     {
-    	return $this->response->created('created', 201);
+    	$data= (array)$request->json()->all();
+        
+            $works = new Works;      
+            
+            $works->title = $data['title'];
+            $works->desc = $data['desc'];
+       
+        if($works->save())
+            return $this->response->created('created', 201);
+        else
+            return $this->response->error('could_not_be_created', 500);
     } 
 
     public function getProjects()
@@ -134,7 +233,17 @@ class ResumeController extends Controller
 	}
     public function postProjects(Request $request)
     {
-    	return $this->response->created('created', 201);
+    	$data= (array)$request->json()->all();
+        
+            $projects = new Projects;      
+            
+            $projects->title = $data['title'];
+            $projects->desc = $data['desc'];
+       
+        if($projects->save())
+            return $this->response->created('created', 201);
+        else
+            return $this->response->error('could_not_be_created', 500);
     } 
 
     public function getAwards()
@@ -144,7 +253,18 @@ class ResumeController extends Controller
 	}
     public function postAwards(Request $request)
     {
-    	return $this->response->created('created', 201);
+    	$data= (array)$request->json()->all();
+        
+            $awards = new Awards;      
+            
+            $awards->date = $data['date'];
+            $awards->position = $data['position'];
+            $awards->name = $data['name'];
+       
+        if($awards->save())
+            return $this->response->created('created', 201);
+        else
+            return $this->response->error('could_not_be_created', 500);
     } 
 
     public function getAchievements()
@@ -154,7 +274,18 @@ class ResumeController extends Controller
 	}
     public function postAchievements(Request $request)
     {
-    	return $this->response->created('created', 201);
+    	$data= (array)$request->json()->all();
+        
+            $achievements = new Achievements;      
+         
+            $achievements->date = $data['date'];
+            $achievements->position = $data['position'];
+            $achievements->name = $data['name'];
+       
+        if($achievements->save())
+            return $this->response->created('created', 201);
+        else
+            return $this->response->error('could_not_be_created', 500);
     } 
 
     public function getVolunteers()
@@ -164,7 +295,19 @@ class ResumeController extends Controller
 	}
     public function postVolunteers(Request $request)
     {
-    	return $this->response->created('created', 201);
+    	$data= (array)$request->json()->all();
+        
+            $volunteers = new Volunteers;      
+            
+            $volunteers->date = $data['date'];
+            $volunteers->title = $data['title'];
+            $volunteers->name = $data['name'];
+            $volunteers->address = $data['address'];
+       
+        if($volunteers->save())
+            return $this->response->created('created', 201);
+        else
+            return $this->response->error('could_not_be_created', 500);
     } 
 
     public function getCasestudies()
@@ -174,7 +317,19 @@ class ResumeController extends Controller
 	}
     public function postCasestudies(Request $request)
     {
-    	return $this->response->created('created', 201);
+    	$data= (array)$request->json()->all();
+        
+            $casestudies = new Casestudies;      
+            
+            $casestudies->date = $data['date'];
+            $casestudies->title = $data['title'];
+            $casestudies->name = $data['name'];
+            
+       
+        if($casestudies->save())
+            return $this->response->created('created', 201);
+        else
+            return $this->response->error('could_not_be_created', 500);
     } 
 
 }
