@@ -1,0 +1,70 @@
+<div ng-controller="NavCtrl" layout="column" ng-cloak>
+
+  <section layout="row" flex>
+
+    <md-sidenav class="md-sidenav-left" md-component-id="left" md-whiteframe="4">
+
+      <md-toolbar class="md-theme-indigo">
+        <h1 class="md-toolbar-tools" layout="row" layout-align="space-between center">Ayush Bhandari
+        	<!-- <md-button class="md-fab" aria-label="Menu" ng-click="toggleLeft()">
+            	<md-icon md-svg-src="images/icons/menu.svg"></md-icon>
+        	</md-button> -->
+        </h1>
+      </md-toolbar>
+
+      <md-content layout="row" layout-align="space-around center" layout-margin>
+        <img src="images/ayush.jpg" ng-style="avatar_style"/>
+        <div>
+        	<h3>Web</h3>
+        	<h3>Application</h3>
+        	<h3>Developer</h3>
+        </div>
+      </md-content>
+      <div layout="column" layout-align="center center">
+    
+    <md-list> 
+      <md-list-item>
+     	 <i class="material-icons">home</i><md-button ng-href="home">Home</md-button>
+      </md-list-item>
+      <md-divider></md-divider>
+
+    <md-list-item>
+     	 <i class="material-icons">perm_identity</i><md-button ng-href="about">About</md-button>
+      </md-list-item>
+      <md-divider></md-divider>
+  
+    <md-list-item>
+     	 <i class="material-icons">pan_tool</i><md-button ng-href="skillsandtools">Skills & Tools</md-button>
+      </md-list-item>
+      <md-divider></md-divider>
+  
+    <md-list-item>
+     	 <i class="material-icons">import_contacts</i><md-button ng-href="educationandcareer">Education & Career</md-button>
+      </md-list-item>
+      <md-divider></md-divider>
+  
+    <md-list-item>
+     	 <i class="material-icons">work</i><md-button ng-href="worksandprojects">Works & Projects</md-button>
+      </md-list-item>
+      <md-divider></md-divider>
+  
+    <md-list-item>
+     	 <i class="material-icons">usb</i><md-button ng-href="awardsandachievements">Awards & Achievements</md-button>
+      </md-list-item>
+      <md-divider></md-divider>
+  
+    <md-list-item>
+     	 <i class="material-icons">contacts</i><md-button ng-href="contact">Contact</md-button>
+      </md-list-item>
+
+
+
+
+
+    </md-list>
+
+      </div>
+    
+    </md-sidenav>
+  </section>
+</div>

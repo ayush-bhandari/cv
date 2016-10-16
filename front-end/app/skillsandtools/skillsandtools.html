@@ -1,0 +1,9 @@
+<p>skills</p>
+<div ng-controller="SkillsController as skills">
+<!-- <p>{{skills.response.skills}}</p> -->
+ 
+ <div ng-repeat="skill in skills.response.skills">
+	<p>{{skill.title}}</p>
+	<p>{{skill.capacity}}</p>
+</div>
+</div>

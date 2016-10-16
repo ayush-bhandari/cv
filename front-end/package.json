@@ -1,0 +1,24 @@
+
+	{
+		"name":"front-end",
+		"author":"Ayush Bhandari",
+		"email":"aayushbhandari@yahoo.com",
+		"version":"1.0.0",
+		"description" : "A package for CV/resume of Ayush Bhandari",
+		"license": "UNLICENSED",
+		"dependencies":{
+			"angular":"*",
+			"angular-route":"*",
+			"angular-messages":"*",
+			"angular-animate":"*",
+			"angular-aria":"*",
+			"angular-material":"*"
+
+		},
+		"repository" :
+		  { 
+		  	"type" : "git",
+		   	"url" : "https://github.com/ayush-bhandari/cv.git"
+		  }
+	}
+
